@@ -3,6 +3,7 @@ const app = express();
 const port = 4000;
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const highscoreRoute = require("./routes/highscores");
 
 dotenv.config();
 
@@ -10,9 +11,7 @@ mongoose.connect(process.env.MONGODB, () => {
   console.log("connected to mongodb");
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.use("/api/highscores", highscoreRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
