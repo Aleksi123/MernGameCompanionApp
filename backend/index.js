@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const highscoreRoute = require("./routes/highscores");
 
+app.use(express.json());
 dotenv.config();
 
 mongoose.connect(process.env.MONGODB, () => {
